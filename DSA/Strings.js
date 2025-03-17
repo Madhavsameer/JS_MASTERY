@@ -31,6 +31,8 @@ function pall(str){
 
 // console.log(pall("Mam"));
 
+
+//Anagram
 function anagram(str1,str2){
     if(str1.length!=str2.length){
         return false;
@@ -57,16 +59,78 @@ function anagram(str1,str2){
     }
 }
 
-console.log(anagram("mada","dam"))
+// console.log(anagram("mada","dam"))
 
-//first unique chracter
+//first unique character
 
 function firstUnique(str){
-    let index=1;
+    str=str.toLowerCase();
+    
+    console.log(str);
+    let char=[];
     for(let i=0; i<str.length;i++){
-        
+        char.push(str.charAt(i));
+    }
+    for(let i=0;i<char.length;i++){
+        for(let j=0; j<char.length; j++){
+            if(char[i]!=char[j]){
+                continue;
+            }
+            
+        }
         
     }
+    
+    console.log(char)
+    
+}
+// console.log(firstUnique("Madhav"));
+
+
+
+
+
+//count vowel and consonants
+function cvc(str){
+    str=str.toLowerCase();
+    let v=0;
+    let c=0;
+    for(let i=0; i<str.length; i++){
+        if(str.charAt(i)=='a' || str.charAt(i)=='e' || str.charAt(i)=='i' || 
+        str.charAt(i)=='o' ||
+        str.charAt(i)=='u'){
+            v++;
+        }
+        else{
+            c++;
+        }
+    }
+    console.log("Number of vowels: "+v);
+    console.log("Number of consonants: "+c);
 }
 
+// cvc("sameer");
+
+function stringcompress(str){
+    let res=""
+    
+    for(let i=0; i<str.length; i+=count){
+        res+=str.charAt(i);
+        var count=1;
+        for(let j=i+1; j<=str.length;j++){
+            if(str.charAt(j)==str.charAt(i)){
+                count++;
+                
+            }
+            
+        }
+        
+        res+=count;
+    }
+
+    return res;
+
+
+}
+console.log(stringcompress("aaabbcc"));
 
